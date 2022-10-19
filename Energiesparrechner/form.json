@@ -1,0 +1,94 @@
+{
+    "elements": [
+        {
+            "type": "SelectVariable",
+            "name": "MeterVariableID",
+            "caption": "Meter variable",
+            "width": "600px",
+            "validVariableTypes": [1, 2],
+            "requiredLogging": 4
+        },
+        {
+            "type": "SelectVariable",
+            "name": "TemperatureVariableID",
+            "caption": "Temperature variable for weather adjustment (optional)",
+            "width": "600px",
+            "validVariableTypes": [1, 2],
+            "requiredLogging": 3
+        },
+        { 
+            "type": "Select", "name": "PeriodType", "caption": "Type of Period",
+            "width": "600px",
+            "options": [
+                { "caption": "From date to date: Set start and end date of period", "value": 0 },
+                { "caption": "From date to today: Set only start date - period ends today", "value": 1 },
+                { "caption": "Sliding period: Select period length - period ends today", "value": 2 }
+            ]
+        },
+        {
+            "type": "List",
+            "name": "Variables",
+            "caption": "Variables",
+            "rowCount": 6,
+            "add": false,
+            "delete": false,
+            "columns": [{
+                "caption": "Ident",
+                "name": "Ident",
+                "save": true,
+                "visible": false
+            }, {
+                "caption": "Position",
+                "name": "Position",
+                "save": true,
+                "visible": false
+            }, {
+                "caption": "VariableProfile",
+                "name": "VariableProfile",
+                "save": true,
+                "visible": false
+            },{
+                "caption": "VariableType",
+                "name": "VariableType",
+                "save": true,
+                "visible": false
+            },{
+                "caption": "WeatherCorrection",
+                "name": "WeatherCorrection",
+                "save": true,
+                "visible": false
+            },{
+                "caption": "Name",
+                "name": "Name",
+                "width": "500px",
+                "save": true,
+                "visible": true
+            }, {
+                "caption": "Active",
+                "name": "Active",
+                "width": "75px",
+                "visible": true,
+                "save": true,
+                "edit": {
+                    "type": "CheckBox"
+                }
+            }],
+            "values": []
+        },
+        { 
+            "type": "NumberSpinner", 
+            "name": "UpdateInterval", 
+            "caption": "Update interval", 
+            "suffix": "hours"
+        }
+    ],
+    "actions": [
+        {
+            "type": "TestCenter"
+        },
+        { "type": "Button", "label": "Calculate", "onClick": "ESR_Update($id);" },
+        { "type": "Button", "label": "Reset variables to default", "onClick": "ESR_ResetVariables($id);" }
+
+    ],
+    "status": []
+}

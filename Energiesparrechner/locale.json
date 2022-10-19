@@ -1,0 +1,32 @@
+{
+    "translations": {
+        "de": {
+            "Meter variable": "Zählervariable",
+            "Temperature variable for weather adjustment (optional)": "Außentemperaturvariable für Witterungsbereinigung (optional)",
+            "Type of Period": "Definition des Zeitraums",
+            "From date to date: Set start and end date of period": "Von Datum zu Datum: Start- und Enddatum auswählen",
+            "From date to today: Set only start date - period ends today": "Von Datum bis heute: Startdatum auswählen - Zeitraum endet am aktuellen Tag",
+            "Sliding period: Select period length - period ends today": "Gleitender Zeitraum: Länge des Zeitraums auswählen - Zeitraum endet am aktuellen Tag",
+            "Variables": "Variablen",
+            "Update interval": "Aktualisierungsinterval",
+            "hours": "Stunden",
+            "Calculate": "Berechnen",
+            "Reset variables to default": "Variablen auf Standardeinstellungen zurücksetzten",
+            "begin of period": "Beginn des Zeitraums",
+            "end of period": "Ende des Zeitraums",
+            "period length": "Länge des Zeitraums",
+            "current period": "aktueller Zeitraum",
+            "last period": "vorheriger Zeitraum",
+            "last period (weather adjusted)": "vorheriger Zeitraum (witterungsbereinigt)",
+            "last year's period": "Vorjahreszeitraum",
+            "last year's period (weather adjusted)": "Vorjahreszeitraum (witterungsbereinigt)",
+            "percent to last period": "Vergleich zum vorherigen Zeitraum",
+            "percent to last period (weather adjusted)": "Vergleich zum vorherigen Zeitraum (witterungsbereinigt)",
+            "percent to last year's period": "Vergleich zum Vorjahreszeitraum",
+            "percent to last year's period (weather adjusted)": "Vergleich zum Vorjahreszeitraum (witterungsbereinigt)", 
+            "Degree days current period": "Gradtagszahl aktueller Zeitraum",
+            "Degree days last period": "Gradtagszahl vorheriger Zeitraum",
+            "Degree days last year's period": "Gradtagszahl Vorjahreszeitraum"      
+        }
+    }
+}

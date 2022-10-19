@@ -1,0 +1,12 @@
+{
+    "id": "{C5B49E99-2A72-15FB-B088-5ACBD8E0DC92}",
+    "name": "Energiesparrechner",
+    "type": 3,
+    "vendor": "",
+    "aliases": [ "Energiesparrechner", "EnergySavingsCalculator"],
+    "parentRequirements": [],
+    "childRequirements": [],
+    "implemented": [],
+    "prefix": "ESR",
+    "url": "https://roastedelectrons.com"
+}

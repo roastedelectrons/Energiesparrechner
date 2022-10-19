@@ -1,0 +1,111 @@
+[
+    {
+        "Ident": "EnergyCurrentPeriod",
+        "Name": "current period",
+        "VariableType": 2,
+        "VariableProfile": "",
+        "Position": 10,
+        "WeatherCorrection": false,
+        "Active": true
+    },
+    {
+        "Ident": "EnergyLastPeriod",
+        "Name": "last period",
+        "VariableType": 2,
+        "VariableProfile": "",
+        "Position": 11,
+        "WeatherCorrection": false,
+        "Active": false
+    },
+    {
+        "Ident": "EnergyLastPeriodCorrected",
+        "Name": "last period (weather adjusted)",
+        "VariableType": 2,
+        "VariableProfile": "",
+        "Position": 12,
+        "WeatherCorrection": true,
+        "Active": false
+    },
+    {
+        "Ident": "EnergyLastYearsPeriod",
+        "Name": "last year's period",
+        "VariableType": 2,
+        "VariableProfile": "",
+        "Position": 13,
+        "WeatherCorrection": false,
+        "Active": true
+    },
+    {
+        "Ident": "EnergyLastYearsPeriodCorrected",
+        "Name": "last year's period (weather adjusted)",
+        "VariableType": 2,
+        "VariableProfile": "",
+        "Position": 14,
+        "WeatherCorrection": true,
+        "Active": true
+    },
+    {
+        "Ident": "PercentLastPeriod",
+        "Name": "percent to last period",
+        "VariableType": 2,
+        "VariableProfile": "~Valve.F",
+        "Position": 15,
+        "WeatherCorrection": false,
+        "Active": false
+    },
+    {
+        "Ident": "PercentLastPeriodCorrected",
+        "Name": "percent to last period (weather adjusted)",
+        "VariableType": 2,
+        "VariableProfile": "~Valve.F",
+        "Position": 16,
+        "WeatherCorrection": false,
+        "Active": false
+    },    
+    {
+        "Ident": "PercentLastYearsPeriod",
+        "Name": "percent to last year's period",
+        "VariableType": 2,
+        "VariableProfile": "~Valve.F",
+        "Position": 17,
+        "WeatherCorrection": true,
+        "Active": true
+    }, 
+ 
+    {
+        "Ident": "PercentLastYearsPeriodCorrected",
+        "Name": "percent to last year's period (weather adjusted)",
+        "VariableType": 2,
+        "VariableProfile": "~Valve.F",
+        "Position": 18,
+        "WeatherCorrection": true,
+        "Active": true
+    }, 
+    {
+        "Ident": "DegreeDaysCurrentPeriod",
+        "Name": "Degree days current period",
+        "VariableType": 2,
+        "VariableProfile": "ESR.DegreeDays",
+        "Position": 20,
+        "WeatherCorrection": true,
+        "Active": false
+    }, 
+    {
+        "Ident": "DegreeDaysLastPeriod",
+        "Name": "Degree days last period",
+        "VariableType": 2,
+        "VariableProfile": "ESR.DegreeDays",
+        "Position": 21,
+        "WeatherCorrection": true,
+        "Active": false
+    }, 
+    {
+        "Ident": "DegreeDaysLastYearsPeriod",
+        "Name": "Degree days last year's period",
+        "VariableType": 2,
+        "VariableProfile": "ESR.DegreeDays",
+        "Position": 22,
+        "WeatherCorrection": true,
+        "Active": false
+    }
+]
