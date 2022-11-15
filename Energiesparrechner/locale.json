@@ -14,7 +14,7 @@
             "Reset variables to default": "Variablen auf Standardeinstellungen zurücksetzten",
             "begin of period": "Beginn des Zeitraums",
             "end of period": "Ende des Zeitraums",
-            "period length": "Länge des Zeitraums",
+            "period length in days": "Länge des Zeitraums in Tagen",
             "current period": "aktueller Zeitraum",
             "last period": "vorheriger Zeitraum",
             "last period (weather adjusted)": "vorheriger Zeitraum (witterungsbereinigt)",

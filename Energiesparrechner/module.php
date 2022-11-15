@@ -71,7 +71,7 @@ declare(strict_types=1);
 			
 			$this->MaintainVariable ("StartDate", $this->translate("begin of period"), 1, "~UnixTimestampDate", 0, $StartDate ); 
 			$this->MaintainVariable ("EndDate", $this->translate("end of period"), 1, "~UnixTimestampDate", 1, $EndDate); 
-			$this->MaintainVariable ("PeriodLength", $this->translate("period length"), 1, static::PREFIX.".Days", 1, $PeriodLength); 
+			$this->MaintainVariable ("PeriodLength", $this->translate("period length in days"), 1, "", 1, $PeriodLength); 
 
 			if ($StartDate ) 
 			{ 
