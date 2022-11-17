@@ -16,15 +16,8 @@ declare(strict_types=1);
 			$this->RegisterPropertyInteger("UpdateInterval", 24 );
 
 			$this->RegisterProfile(2, static::PREFIX.".DegreeDays", "Temperature", "", " Kd", 0, 0, 0, 1);
-			$this->RegisterProfile(1, static::PREFIX.".Days", "Calendar", "", " days", 0, 0, 0, 1);
 
 			$variables = $this->GetVariableList();
-
-			foreach ($variables as $index => $value)
-			{
-				$variables[$index]['Name'] = $this->Translate( $variables[$index]['Name'] ) ;
-			}
-	
 			$this->RegisterPropertyString("Variables", json_encode ( $variables ) );
 
 			$this->RegisterTimer("UpdateTimer", 0, static::PREFIX ."_Update(\$_IPS['TARGET']);");
@@ -40,6 +33,21 @@ declare(strict_types=1);
 		{
 			//Never delete this line!
 			parent::ApplyChanges();
+
+
+			// Get Variable list
+			$variables = json_decode( $this->ReadPropertyString("Variables"), true);
+
+
+			// Check for new Variables in case of a module update
+			// Get variable list template
+			$variableList = $this->GetVariableList();
+
+			if ( count( $variables) != count($variableList) )
+			{
+				$variables = $this->UpdateVariableList();
+			}
+
 
 
 			// Create Control Variables based on Period Type
@@ -112,9 +120,6 @@ declare(strict_types=1);
 			$temperatureVariableID = $this->ReadPropertyInteger("TemperatureVariableID");
 
 
-			$variables = json_decode( $this->ReadPropertyString("Variables"), true);
-
-
 			foreach( $variables as $variable)
 			{
 				$variableProfile = $variable["VariableProfile"];
@@ -138,6 +143,7 @@ declare(strict_types=1);
 				$this->SetTimerInterval("UpdateTimer", 0);
 			}
 		}
+
 
 		public function RequestAction($Ident, $Value) {
 
@@ -258,14 +264,42 @@ declare(strict_types=1);
 
 		}
 
+		public function UpdateVariableList()
+		{
+			// Get current variable list
+			$variables = json_decode( $this->ReadPropertyString("Variables"), true);
 
-		public function ResetVariables( )
+			// Get variable list  template
+			$variableList = $this->GetVariableList();
+
+			// Generate a new Variable List from template
+			foreach ($variableList as $index => $newVariable)
+			{
+				
+				// If variable already existed, keep Active parameter
+				$variablesIndex = array_search( $newVariable['Ident'], array_column( $variables, 'Ident') );
+				if ($variablesIndex !== false)
+				{
+					$variableList[$index]['Active']  = $variables[$variablesIndex]['Active'];
+				}
+			}
+			
+			IPS_SetProperty( $this->InstanceID, "Variables", json_encode ( $variableList ) );
+			IPS_ApplyChanges( $this->InstanceID );	
+
+			return $variableList;
+		}
+
+		public function ResetVariableList( )
 		{
 			$variables = $this->GetVariableList();
 
-			foreach ($variables as $index => $value)
+			foreach ($variables as $index => $variable)
 			{
-				$variables[$index]['Name'] = $this->Translate( $variables[$index]['Name'] ) ;
+				if ( $varID = @$this->GetIDForIdent( $variable['Ident'] )  )
+				{
+					IPS_SetName( $varID, $variable['Name'] );
+				}
 			}
 	
 
@@ -286,6 +320,11 @@ declare(strict_types=1);
 				$data = array();
 			}
 	
+			foreach ($data as $index => $variable)
+			{
+				$data[$index]['Name'] = $this->Translate( $variable['Name'] ) ;
+			}
+
 			return $data;
 		}
 

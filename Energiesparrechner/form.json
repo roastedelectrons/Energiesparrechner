@@ -87,7 +87,7 @@
             "type": "TestCenter"
         },
         { "type": "Button", "label": "Calculate", "onClick": "ESR_Update($id);" },
-        { "type": "Button", "label": "Reset variables to default", "onClick": "ESR_ResetVariables($id);" }
+        { "type": "Button", "label": "Reset variables to default", "onClick": "ESR_ResetVariableList($id);" }
 
     ],
     "status": []
