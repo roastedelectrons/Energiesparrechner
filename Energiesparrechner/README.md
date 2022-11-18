@@ -1,15 +1,12 @@
 # Energiesparrechner
-Mit dem Energiesparrechner kann der Energieverbrauch eines Zeitraums mit dem Verbrauch aus dem vorherigen oder Vorjahreszeitraum verglichen werden. Es stehen verschiedene Möglichkeiten bereit, den Zeitraum zu definieren (mit Datumsauswahl oder gleitend). Der Energieverbrauch kann witterungsbereinigt werden, um z.B. Heizenergieverbräuche besser vergleichen zu können. Für die Witterungsbereinigung ist eine Variable der Außentemperatur mit aktivitem Logging erforderlich. Die Witterungsbereinigung erfolgt dabei über die Berechnung der Gradtagszahlen in den jeweiligen Vergleichszeiträumen.
 
 ### Inhaltsverzeichnis
 
 1. [Funktionsumfang](#1-funktionsumfang)
-2. [Voraussetzungen](#2-voraussetzungen)
-3. [Software-Installation](#3-software-installation)
-4. [Einrichten der Instanzen in IP-Symcon](#4-einrichten-der-instanzen-in-ip-symcon)
-5. [Statusvariablen und Profile](#5-statusvariablen-und-profile)
-6. [WebFront](#6-webfront)
-7. [PHP-Befehlsreferenz](#7-php-befehlsreferenz)
+2. [Konfiguration](#2-konfiguration)
+3. [Statusvariablen und Profile](#3-statusvariablen-und-profile)
+4. [WebFront](#4-webfront)
+5. [PHP-Befehlsreferenz](#5-php-befehlsreferenz)
 
 ### 1. Funktionsumfang
 
@@ -20,19 +17,7 @@ Mit dem Energiesparrechner kann der Energieverbrauch eines Zeitraums mit dem Ver
   * Von Datum zum aktuellen Tag
   * Gleitender Zeitraum über die letzten X Tage
 
-### 2. Voraussetzungen
-
-- IP-Symcon ab Version 6.0
-
-### 3. Software-Installation
-
-* Über den Module Store das 'Energiesparrechner'-Modul installieren.
-* Alternativ über das Module Control folgende URL hinzufügen [Github Repository](https://github.com/roastedelectrons/Energiesparrechner)
-
-### 4. Einrichten der Instanzen in IP-Symcon
-
- Unter 'Instanz hinzufügen' kann das 'Energiesparrechner'-Modul mithilfe des Schnellfilters gefunden werden.  
-	- Weitere Informationen zum Hinzufügen von Instanzen in der [Dokumentation der Instanzen](https://www.symcon.de/service/dokumentation/konzepte/instanzen/#Instanz_hinzufügen)
+### 2. Konfiguration
 
 __Konfigurationsseite__:
 
@@ -45,7 +30,7 @@ Variables                   | Auswahl der anzulegenden Variablen mit verschieden
 UpdateInteral               | Interval in dem die Berechnungen durchgeführt werden (in Stunden)
 
 
-### 5. Statusvariablen und Profile
+### 3. Statusvariablen und Profile
 
 Die Statusvariablen/Kategorien werden automatisch angelegt. Das Löschen einzelner kann zu Fehlfunktionen führen.
 
@@ -80,22 +65,18 @@ DegreeDaysLastYearsPeriod | Float | Gradtagszahl Vorjahreszeitraum
 Name   | Typ
 ------ | -------
 ESR.DegreeDays | Float
-ESR.Days       | Integer
 
-### 6. WebFront
+### 4. WebFront
 
 Im WebFront kann der Zeitraum je nach Periodentyp verändert werden. Alle berechneten Kennwerte können im Webfront angezeigt werden.
 
-### 7. PHP-Befehlsreferenz
+### 5. PHP-Befehlsreferenz
 
 `boolean ESR_Update(integer $InstanzID);`
 Führt die Brechnung der Kennzahlen aus.
 
-Beispiel:
-`ESR_Update(12345);`
+`boolean ESR_ResetVariableList(integer $InstanzID);`
+Setzt die Einstellungen der Variablen auf Standardeinstellungen zurück. Hierbei werden auch die Namen der existierenden Variablen umbenannt.
 
-`boolean ESR_ResetVariables(integer $InstanzID);`
-Setzt die Einstellungen der Variablen auf Standard zurück. Dies kann ggf. bei funktionalen Updates erforderlich sein.
-
-Beispiel:
-`ESR_ResetVariables(12345);`
+`boolean ESR_ResetUpdateList(integer $InstanzID);`
+Aktualisiert die Variablenliste. Dies kann erforderlich sein, wenn durch ein Modul Update neu Statusvariablen hinzugefügt oder entfernt wurden.

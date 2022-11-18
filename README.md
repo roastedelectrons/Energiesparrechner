@@ -4,13 +4,40 @@
 ![GitHub](https://img.shields.io/github/license/roastedelectrons/Energiesparrechner)
 
 # Energiesparrechner
-Mit dem Energiesparrechner kann der Energieverbrauch eines Zeitraums mit dem Verbrauch aus dem vorherigen oder Vorjahreszeitraum verglichen werden. Es stehen verschiedene Möglichkeiten bereit, den Zeitraum zu definieren (mit Datumsauswahl oder gleitend). Der Energieverbrauch kann witterungsbereinigt werden, um z.B. Heizenergieverbräuche besser vergleichen zu können. Für die Witterungsbereinigung ist eine Variable der Außentemperatur mit aktivitem Logging erforderlich. Die Witterungsbereinigung erfolgt dabei über die Berechnung der Gradtagszahlen in den jeweiligen Vergleichszeiträumen.
+Modul für IP-Symcon zum witterungsbereinigten Vergleich des Energieverbrauchs eines Zeitraums mit dem Verbrauch aus dem vorherigen oder Vorjahreszeitraum. Es stehen verschiedene Möglichkeiten bereit, den Zeitraum zu definieren:
+ 1. Von Datum zu Datum
+ 2. Von Datum zum aktuellen Tag
+ 3. Gleitender Zeitraum über die letzten X Tage 
 
-Folgende Module beinhaltet das Energiesparrechner Repository:
+Der Energieverbrauch kann witterungsbereinigt werden, um z.B. Heizenergieverbräuche besser vergleichen zu können. Für die Witterungsbereinigung ist eine Variable der Außentemperatur mit aktiviertem Logging erforderlich. Die Witterungsbereinigung erfolgt über die Berechnung der [Gradtagszahlen nach VDI 2067](https://de.wikipedia.org/wiki/Gradtagzahl). Der aktuelle Zeitraum ist der Referenzzeitraum, die Energieverbräuche der zurückliegenden Zeiträume werden witterungsbereinigt.
+
+
+### Inhaltsverzeichnis
+
+1. [Voraussetzungen](#1-voraussetzungen)
+2. [Enthaltene Module](#2-enthaltene-module)
+3. [Installation](#3-software-installation)
+4. [Einrichtung in IP-Symcon](#4-einrichtung-in-ip-symcon)
+5. [Lizenz](#5-lizenz)
+
+### 1. Voraussetzungen
+
+- IP-Symcon ab Version 6.0
+
+### 2. Enthaltene Module
 
 - __Energiesparrechner__ ([Dokumentation](Energiesparrechner))  
 
-# Lizenz
+
+### 3. Installation
+
+In IP-Symcon über den Module Store das 'Energiesparrechner'-Modul installieren.
+
+### 4. Einrichtung in IP-Symcon
+
+Zur Konfiguration des Moduls siehe Modul-Dokumentation.
+
+### 5. Lizenz
 MIT License
 
 Copyright (c) 2022 Tobias Ohrdes
